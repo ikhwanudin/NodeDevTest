@@ -19,8 +19,10 @@ $ npm install
 ```bash
 #run migration
 $ npm run migrate:dev
+#run db seed
+$ npx prisma db seed
 # development
-$ npm run start
+$ npm run start:dev
 ```
 
 ## API Postman Docs

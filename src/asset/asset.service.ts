@@ -42,13 +42,12 @@ export class AssetService {
 
     async getImages() {
         var images = await this.prisma.image.findMany()
-        return images.map(image => ({
-            data: {
-                id: image.id,
-                //still hardcode url temp, bad practice
-                path: 'http://localhost:3000/asset/image/' + this.base64EncodeSlug(image.path)
-            }
+        var preDataImages = images.map(image => ({
+            id: image.id,
+            //still hardcode url temp, bad practice
+            path: 'http://localhost:3000/asset/image/' + this.base64EncodeSlug(image.path)
         }))
+        return { data: preDataImages }
     }
 
     base64EncodeFile(file: string) {
